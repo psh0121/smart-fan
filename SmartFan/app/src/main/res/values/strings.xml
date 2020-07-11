@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Smart Fan</string>
+    <string name="home">Home</string>
+    <string name="remote">remote</string>
+    <string name="explain">explain</string>
+    <string name="settings">settings</string>
+    <string name="remote_control">remote control</string>
+    <string name="add_remote_control">add remote control</string>
+    <string name="smart_fan">Smart Fan</string>
 </resources>
