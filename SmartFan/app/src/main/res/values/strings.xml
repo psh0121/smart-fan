@@ -7,4 +7,7 @@
     <string name="remote_control">remote control</string>
     <string name="add_remote_control">add remote control</string>
     <string name="smart_fan">Smart Fan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_remote">add_remote</string>
 </resources>
