@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
+        android:id="@+id/mainMenu"/>
 
 </FrameLayout>
