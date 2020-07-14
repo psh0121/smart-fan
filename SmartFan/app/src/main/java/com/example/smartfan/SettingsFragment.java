@@ -1,14 +1,16 @@
 package com.example.smartfan;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,24 +18,53 @@ import android.widget.ListView;
 public class SettingsFragment extends Fragment {
 
 
-    public SettingsFragment() {
-        // Required empty public constructor
-    }
+    ArrayList<Setting> settings;
+    ListView settingsListView;
+    private static SettingsAdapter settingsAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        String[] menuItems = {"number one", "number two", "number three", "number four"};
+        //data를 가져와서 어답터와 연결해 준다. 서버에서 가져오는게 대부분 이다.
+        settings = new ArrayList<>();
+        settings.add(new Setting("위젯 설정", R.drawable.widget, "바탕화면에 추가시킬 위젯에 대한 설정"));
+        settings.add(new Setting("온도 PUSH 알람", R.drawable.temperature, "일정 온도가 넘어가면 선풍기를 돌아가도록 설정"));
+        settings.add(new Setting("음성인식모드 설정", R.drawable.voice, "버튼 클릭을 최소화해 음성만으로 선풍기가 켜지도록 설정"));
+        settings.add(new Setting("도움말", R.drawable.advice, "기타 질문 확인"));
 
-        ListView listView = (ListView) view.findViewById(R.id.mainMenu);
+        settingsListView = (ListView) rootView.findViewById(R.id.listView_settings);
+        settingsAdapter = new SettingsAdapter(getContext(),settings);
+        settingsListView.setAdapter(settingsAdapter);
 
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, menuItems);
+        return rootView;
+    }
+}
 
-        listView.setAdapter(listViewAdapter);
 
-        return view;
+//data class
+class Setting {
+    private String title;
+    private String description;
+    private Integer icon;
+
+    public Setting(String title, Integer icon, String description) {
+        this.title = title;
+        this.description = description;
+        this.icon = icon;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getIcon() {
+        return icon;
     }
 }
