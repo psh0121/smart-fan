@@ -1,6 +1,7 @@
 package com.example.smartfan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,8 @@ class SettingsAdapter extends ArrayAdapter implements AdapterView.OnItemClickLis
     private List list;
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        //임시로 Toast 제거함
     }
 
     class ViewHolder {

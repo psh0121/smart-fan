@@ -1,5 +1,6 @@
 package com.example.smartfan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,30 @@ public class SettingsFragment extends Fragment {
         settingsListView = (ListView) rootView.findViewById(R.id.listView_settings);
         settingsAdapter = new SettingsAdapter(getContext(),settings);
         settingsListView.setAdapter(settingsAdapter);
+
+        //클릭하면 원하는 페이지로 넘어가게 설정
+        settingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(view.getContext(), Settings_Widget.class);
+                    startActivity(intent);
+                }
+                if (position == 1) {
+                    Intent intent = new Intent(view.getContext(), Settings_Temperature.class);
+                    startActivity(intent);
+                }
+                if (position == 2) {
+                    Intent intent = new Intent(view.getContext(), Settings_Voice.class);
+                    startActivity(intent);
+                }
+                if (position == 3) {
+                    Intent intent = new Intent(view.getContext(), Settings_Advice.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         return rootView;
     }
