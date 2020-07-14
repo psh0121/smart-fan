@@ -6,7 +6,7 @@
     tools:context=".SettingsFragment">
 
     <ListView
-        android:id="@+id/listView_custom"
+        android:id="@+id/listView_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 

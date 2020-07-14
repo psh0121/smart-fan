@@ -16,7 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-class CustomAdapter extends ArrayAdapter implements AdapterView.OnItemClickListener {
+class SettingsAdapter extends ArrayAdapter implements AdapterView.OnItemClickListener {
 
     private Context context;
     private List list;
@@ -27,12 +27,12 @@ class CustomAdapter extends ArrayAdapter implements AdapterView.OnItemClickListe
     }
 
     class ViewHolder {
-        public TextView tv_name;
-        public TextView tv_summary;
-        public ImageView iv_thumb;
+        public TextView tv_title;
+        public TextView tv_description;
+        public ImageView iv_icon;
     }
 
-    public CustomAdapter(Context context, ArrayList list){
+    public SettingsAdapter(Context context, ArrayList list){
         super(context, 0, list);
         this.context = context;
         this.list = list;
@@ -48,20 +48,20 @@ class CustomAdapter extends ArrayAdapter implements AdapterView.OnItemClickListe
         }
 
         viewHolder = new ViewHolder();
-        viewHolder.tv_name = (TextView) convertView.findViewById(R.id.textView_name);
-        viewHolder.tv_summary = (TextView) convertView.findViewById(R.id.textView_summary);
-        viewHolder.iv_thumb = (ImageView) convertView.findViewById(R.id.imageView_thumb);
+        viewHolder.tv_title = (TextView) convertView.findViewById(R.id.textView_title);
+        viewHolder.tv_description = (TextView) convertView.findViewById(R.id.textView_description);
+        viewHolder.iv_icon = (ImageView) convertView.findViewById(R.id.imageView_icon);
 
-        final Actor actor = (Actor) list.get(position);
-        viewHolder.tv_name.setText(actor.getName());
-        viewHolder.tv_summary.setText(actor.getSummary());
+        final Setting setting = (Setting) list.get(position);
+        viewHolder.tv_title.setText(setting.getTitle());
+        viewHolder.tv_description.setText(setting.getDescription());
         Glide
                 .with(context)
-                .load(actor.getThumb_url())
+                .load(setting.getIcon())
                 .centerCrop()
-                .apply(new RequestOptions().override(250, 350))
-                .into(viewHolder.iv_thumb);
-        viewHolder.tv_name.setTag(actor.getName());
+                .apply(new RequestOptions().override(100, 100))
+                .into(viewHolder.iv_icon);
+        viewHolder.tv_title.setTag(setting.getTitle());
 
 
 //        //아이템 클릭 방법2 - 클릭시 아이템 반전 효과가 안 먹힘

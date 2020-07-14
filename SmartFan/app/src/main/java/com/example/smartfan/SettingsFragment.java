@@ -1,15 +1,14 @@
 package com.example.smartfan;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
@@ -19,9 +18,9 @@ import java.util.ArrayList;
 public class SettingsFragment extends Fragment {
 
 
-    ArrayList<Actor> actors;
-    ListView customListView;
-    private static CustomAdapter customAdapter;
+    ArrayList<Setting> settings;
+    ListView settingsListView;
+    private static SettingsAdapter settingsAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,24 +29,15 @@ public class SettingsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
         //data를 가져와서 어답터와 연결해 준다. 서버에서 가져오는게 대부분 이다.
-        actors = new ArrayList<>();
-        actors.add(new Actor("Number One", R.drawable.android, "number 1"));
-        actors.add(new Actor("Number Two", R.drawable.android, "number 2"));
-        actors.add(new Actor("Number Three", R.drawable.android, "number 3"));
-        actors.add(new Actor("Number Four", R.drawable.android, "number 4"));
-        actors.add(new Actor("Number Five", R.drawable.android, "number 5"));
+        settings = new ArrayList<>();
+        settings.add(new Setting("위젯 설정", R.drawable.widget, "바탕화면에 추가시킬 위젯에 대한 설정"));
+        settings.add(new Setting("온도 PUSH 알람", R.drawable.temperature, "일정 온도가 넘어가면 선풍기를 돌아가도록 설정"));
+        settings.add(new Setting("음성인식모드 설정", R.drawable.voice, "버튼 클릭을 최소화해 음성만으로 선풍기가 켜지도록 설정"));
+        settings.add(new Setting("도움말", R.drawable.advice, "기타 질문 확인"));
 
-        customListView = (ListView) rootView.findViewById(R.id.listView_custom);
-        customAdapter = new CustomAdapter(getContext(),actors);
-        customListView.setAdapter(customAdapter);
-        customListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                //각 아이템을 분간 할 수 있는 position과 뷰
-                String selectedItem = (String) view.findViewById(R.id.textView_name).getTag().toString();
-                Toast.makeText(getContext(), "Clicked: " + position +" " + selectedItem, Toast.LENGTH_SHORT).show();
-            }
-        });
+        settingsListView = (ListView) rootView.findViewById(R.id.listView_settings);
+        settingsAdapter = new SettingsAdapter(getContext(),settings);
+        settingsListView.setAdapter(settingsAdapter);
 
         return rootView;
     }
@@ -55,26 +45,26 @@ public class SettingsFragment extends Fragment {
 
 
 //data class
-class Actor {
-    private String name;
-    private String summary;
-    private Integer thumb_url;
+class Setting {
+    private String title;
+    private String description;
+    private Integer icon;
 
-    public Actor(String name, Integer thumb_url, String summary) {
-        this.name = name;
-        this.summary = summary;
-        this.thumb_url = thumb_url;
+    public Setting(String title, Integer icon, String description) {
+        this.title = title;
+        this.description = description;
+        this.icon = icon;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getDescription() {
+        return description;
     }
 
-    public Integer getThumb_url() {
-        return thumb_url;
+    public Integer getIcon() {
+        return icon;
     }
 }
