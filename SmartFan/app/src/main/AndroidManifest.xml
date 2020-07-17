@@ -12,7 +12,7 @@
         <activity android:name=".Settings_Advice"></activity>
         <activity android:name=".Settings_Voice" />
         <activity android:name=".Settings_Temperature" />
-        <activity android:name=".Settings_Widget" />
+        <activity android:name=".Settings_Widget"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".IntroActivity">
             <intent-filter>

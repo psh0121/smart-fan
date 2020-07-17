@@ -35,7 +35,6 @@ public class Settings_Advice_VersionsAdapter extends RecyclerView.Adapter<Settin
         Settings_Advice_Versions versions = versionsList.get(position);
         holder.codeNameTxt.setText(versions.getCodeName());
         holder.versionTxt.setText(versions.getVersion());
-        holder.apiLevelTxt.setText(versions.getApilevel());
         holder.descriptionTxt.setText(versions.getDescription());
 
         boolean isExpandable = versionsList.get(position).isExpandable();
@@ -50,7 +49,7 @@ public class Settings_Advice_VersionsAdapter extends RecyclerView.Adapter<Settin
 
     public class VersionVH extends RecyclerView.ViewHolder {
 
-        TextView codeNameTxt, versionTxt, apiLevelTxt, descriptionTxt;
+        TextView codeNameTxt, versionTxt, descriptionTxt;
         LinearLayout linearLayout;
         RelativeLayout expandableLayout;
 
@@ -59,7 +58,6 @@ public class Settings_Advice_VersionsAdapter extends RecyclerView.Adapter<Settin
 
             codeNameTxt = itemView.findViewById(R.id.settings_codename);
             versionTxt = itemView.findViewById(R.id.settings_version);
-            apiLevelTxt = itemView.findViewById(R.id.settings_apilevel);
             descriptionTxt = itemView.findViewById(R.id.settings_description);
 
             linearLayout = itemView.findViewById(R.id.settings_linearlayout);
