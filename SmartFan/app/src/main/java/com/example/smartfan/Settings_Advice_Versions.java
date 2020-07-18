@@ -32,8 +32,8 @@ public class Settings_Advice_Versions {
         return version;
     }
 
-    public void setVersion(String vseion) {
-        this.version = vseion;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public String getDescription() {
