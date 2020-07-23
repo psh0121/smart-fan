@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:elevation="4dp">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스마트 선풍기"
+        android:textColor="@color/colorGray"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingTop="3dp"
+        android:fontFamily="@font/hanfont_r"
+        android:layout_gravity="center" />
+
+</androidx.appcompat.widget.Toolbar>
