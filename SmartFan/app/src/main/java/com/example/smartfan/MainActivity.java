@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // start에 지정된 Drawer 열기
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
