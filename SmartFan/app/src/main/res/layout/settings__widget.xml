@@ -11,12 +11,13 @@
     layout="@layout/toolbar"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="위젯설정"
-        android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:fontFamily="@font/hanfont_l"
+        android:padding="20sp"
+        android:textSize="20sp"
+        android:text="안녕하세요. \n이 어플은 스마트 선풍기를 위한 리모컨 입니다.
+        \n스마트 선풍기는 온도를 자동으로 인식해 풍속조절이 가능하고 음성인식기능도 포함되어 편리한 사용이 가능합니다.
+        \n특별한 블루투스 선풍기를 이용해보시기바랍니다."/> <!-- 앱에 대한 부가적인 내용 작성 예정 -->
 
 </RelativeLayout>
