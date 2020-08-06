@@ -26,9 +26,11 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // LayoutInflater 사용해 Resource Layout을 View로 변환해준 후 findViewById() 호출
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        //ListView 아이템에 표시될 사용자 데이터 정의
         //data를 가져와서 어답터와 연결해 준다. 서버에서 가져오는게 대부분 이다.
         settings = new ArrayList<>();
         settings.add(new Setting("위젯 설정", R.drawable.widget, "바탕화면에 추가시킬 위젯에 대한 설정"));
