@@ -14,9 +14,8 @@ public class IntroActivity extends Activity {
         handler.postDelayed(new Runnable(){
             @Override
             public void run() {
-                // 인트로 화면을 보여준 후 intent를 사용해 메인화면인 MainActivity.class로 넘어가도록 함
                 Intent intent = new Intent (getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                startActivity(intent); //다음화면으로 넘어감
                 finish();
             }
         },2000); //2초 뒤에 Runner객체 실행하도록 함
