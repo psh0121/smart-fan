@@ -38,13 +38,13 @@ public class AddremoteFragment extends Fragment {
     private static final int REQUEST_DISCOVER_BT = 1;
     private UUID mDeviceUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private int mBufferSize = 50000; //Default
-    public static final String DEVICE_EXTRA = "com.example.bluetooth.SOCKET";
-    public static final String DEVICE_UUID = "com.example.bluetooth.uuid";
-    private static final String DEVICE_LIST = "com.example.bluetooth.devicelist";
-    private static final String DEVICE_LIST_SELECTED = "com.example.bluetooth.devicelistselected";
+    public static final String DEVICE_EXTRA = "com.example.smartfan.SOCKET";
+    public static final String DEVICE_UUID = "com.example.smartfan.uuid";
+    private static final String DEVICE_LIST = "com.example.smartfan.devicelist";
+    private static final String DEVICE_LIST_SELECTED = "com.example.smartfan.devicelistselected";
     private static final int BT_ENABLE_REQUEST = 10;
     private static final int SETTINGS = 20;
-    public static final String BUFFER_SIZE = "com.example.bluetooth.buffersize";
+    public static final String BUFFER_SIZE = "com.example.smartfan.buffersize";
 
 
     TextView mStatusBlueTv;
