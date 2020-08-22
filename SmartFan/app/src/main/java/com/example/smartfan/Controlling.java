@@ -36,9 +36,13 @@ public class Controlling extends Activity {
     final static String on="92"; // on
     final static String off="79"; // off
 
+    final static String weak="10"; // weak
+    final static String middle="50"; // middle
+    final static String strong="80"; // strong
+
 
     private ProgressDialog progressDialog;
-    Button btnOn,btnOff;
+    Button btnOn,btnOff, btnWeak, btnMiddle, btnStrong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,9 @@ public class Controlling extends Activity {
         // mBtnDisconnect = (Button) findViewById(R.id.btnDisconnect);
         btnOn=(Button)findViewById(R.id.on);
         btnOff=(Button)findViewById(R.id.off);
+        btnWeak=(Button)findViewById(R.id.weak);
+        btnMiddle=(Button)findViewById(R.id.middle);
+        btnStrong=(Button)findViewById(R.id.strong);
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
@@ -80,6 +87,39 @@ public class Controlling extends Activity {
 
                 try {
                     mBTSocket.getOutputStream().write(off.getBytes());
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+            }});
+
+        btnWeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    mBTSocket.getOutputStream().write(weak.getBytes());
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+            }});
+
+        btnMiddle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    mBTSocket.getOutputStream().write(middle.getBytes());
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+            }});
+
+        btnStrong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    mBTSocket.getOutputStream().write(strong.getBytes());
                 } catch (IOException e) {
 
                     e.printStackTrace();

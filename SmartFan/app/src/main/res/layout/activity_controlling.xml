@@ -21,4 +21,30 @@
         android:text="off"
         android:layout_marginLeft="100dp"/>
 
+    <!-- 약풍 -->
+    <Button
+        android:id="@+id/weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약풍"
+        android:layout_marginTop="50dp"/>
+
+    <!-- 중풍 -->
+    <Button
+        android:id="@+id/middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중풍"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"/>
+
+    <!-- 강풍 -->
+    <Button
+        android:id="@+id/strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="강풍"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="200dp"/>
+
 </RelativeLayout>
