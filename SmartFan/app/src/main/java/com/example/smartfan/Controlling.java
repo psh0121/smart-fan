@@ -169,6 +169,14 @@ public class Controlling extends Activity {
                 }
                 setTime(millisInput);
                 mEditTextInput.setText("");
+
+                //임시 작성 (타이머정보를 보낼 수 있는가)
+                try {
+                    mBTSocket.getOutputStream().write(input.getBytes());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
