@@ -39,12 +39,12 @@ public class Controlling extends Activity {
     private Button mBtnDisconnect;
     private BluetoothDevice mDevice;
 
-    final static String on="92"; // on
-    final static String off="79"; // off
+    final static String on="1500"; // on
+    final static String off="1600"; // off
 
-    final static String weak="10"; // weak
-    final static String middle="50"; // middle
-    final static String strong="80"; // strong
+    final static String weak="1700"; // weak
+    final static String middle="1800"; // middle
+    final static String strong="1900"; // strong
 
     private ProgressDialog progressDialog;
     Button btnOn,btnOff, btnWeak, btnMiddle, btnStrong;
