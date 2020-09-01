@@ -54,7 +54,6 @@ public class Controlling extends Activity {
     private TextView mTextViewCountDown;
     private Button mButtonSet;
     private Button mButtonStartPause;
-    private Button mButtonReset;
 
     private CountDownTimer mCountDownTimer;
 
@@ -87,7 +86,6 @@ public class Controlling extends Activity {
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonSet = findViewById(R.id.button_set);
         mButtonStartPause = findViewById(R.id.button_start_pause);
-        mButtonReset = findViewById(R.id.button_reset);
 
         Log.d(TAG, "Ready");
 
@@ -170,7 +168,11 @@ public class Controlling extends Activity {
                 setTime(millisInput);
                 mEditTextInput.setText("");
 
-                //임시 작성 (타이머정보를 보낼 수 있는가)
+                if (mTimerRunning) { }
+                else {
+                    startTimer();
+                }
+
                 try {
                     mBTSocket.getOutputStream().write(input.getBytes());
                 } catch (IOException e) {
@@ -184,15 +186,8 @@ public class Controlling extends Activity {
             public void onClick(View v) {
                 if (mTimerRunning) {
                     pauseTimer();
-                } else {
-                    startTimer();
-                }
-            }
-        });
-        mButtonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimer();
+
+                } else { }
             }
         });
     }
@@ -396,6 +391,16 @@ public class Controlling extends Activity {
         mCountDownTimer.cancel();
         mTimerRunning = false;
         updateWatchInterface();
+
+        String resetTime = String.format(Locale.getDefault(),
+                "00:00");
+        mTextViewCountDown.setText(resetTime);
+
+        try {
+            mBTSocket.getOutputStream().write(off.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     private void resetTimer() {
         mTimeLeftInMillis = mStartTimeInMillis;
@@ -420,21 +425,15 @@ public class Controlling extends Activity {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
             mButtonSet.setVisibility(View.INVISIBLE);
-            mButtonReset.setVisibility(View.INVISIBLE);
-            mButtonStartPause.setText("Pause");
+            mButtonStartPause.setVisibility(View.VISIBLE);
         } else {
             mEditTextInput.setVisibility(View.VISIBLE);
             mButtonSet.setVisibility(View.VISIBLE);
-            mButtonStartPause.setText("Start");
+            mButtonStartPause.setVisibility(View.INVISIBLE);
             if (mTimeLeftInMillis < 1000) {
                 mButtonStartPause.setVisibility(View.INVISIBLE);
             } else {
                 mButtonStartPause.setVisibility(View.VISIBLE);
-            }
-            if (mTimeLeftInMillis < mStartTimeInMillis) {
-                mButtonReset.setVisibility(View.VISIBLE);
-            } else {
-                mButtonReset.setVisibility(View.INVISIBLE);
             }
         }
     }
