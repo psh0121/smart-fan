@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- SubActivity 입력 -->
         <activity android:name=".Controlling"/>
         <activity android:name=".Settings_Advice" />
         <activity android:name=".Settings_Voice" />
@@ -21,9 +22,12 @@
         <activity android:name=".Settings_Widget" />
         <activity android:name=".MainActivity" />
         <activity android:name=".IntroActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+            <!-- 특정 intent를 받을지 말지 정하도록 intnet-filter를 입력 -->
+            <intent-filter>
+                <!-- action_main : 시작 액티비티를 지정하는 액션 -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- category_LAUNCHER : 애플리 케이션에서 가장 먼저 실행되는 액티비티 -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

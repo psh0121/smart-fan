@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings_Advice">
+    tools:context=".Settings_Advice"> <!-- 각 지정 파일에 맞게 툴 입력 -->
 
     <include
         android:id="@+id/toolbar"
