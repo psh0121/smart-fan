@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Settings_Advice">
+    tools:context=".Settings_Advice"> <!-- 각 지정 파일에 맞게 툴 입력 -->
 
     <LinearLayout
         android:id="@+id/layoutToolBar"
